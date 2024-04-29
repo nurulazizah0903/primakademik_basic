@@ -1,0 +1,5 @@
+pertanyaan,jenis pertanyaan,bobot,pilihan ganda,jawaban pilihan ganda
+Apa yang dimaksud dengan Karnifora,text,50,,
+Beri contoh gambar hewan Omnifora,file,25,,
+Apa bahasa inggris dari gajah,pilihan,25,Elepanth;Pig;Duck,Elepanth
+Apa bahasa inggris dari Singa,pilihan ganda,25,Elepanth;Leo;Duck,Leo

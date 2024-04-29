@@ -1,0 +1,144 @@
+html body .page-hero h3 {
+    font-size: 3rem;
+    font-weight: bold;
+    text-shadow: -1px -1px 1px #460000, 2px 2px 1px #ff4965;
+    text-transform: uppercase;
+    color: #bd122d
+}
+
+html body .page-hero p {
+    color: #f1acb7
+}
+
+html body .card {
+    border-radius: 15px;
+    overflow: hidden
+}
+
+html body .card-header {
+    background-image: var(--gradient-1);
+    /* background-color: #019C9C; */
+    color: #fff
+}
+
+html body .card-header .prevMonth {
+    cursor: pointer
+}
+
+html body .card-header .nextMonth {
+    cursor: pointer
+}
+
+html body .cals-body {
+    background: #D3D3D3;
+}
+
+html body .cals-body .days span {
+    background: #939090;
+    color: #fff;
+    border-radius: 50%;
+    display: inline-block;
+    height: 45px;
+    width: 45px;
+    line-height: 45px;
+    cursor: pointer
+}
+
+html body .cals-body .days span:hover {
+    background: #019C9C
+}
+
+html body .cals-body .dates span {
+    background: #fff;
+    color: #000;
+    border-radius: 50%;
+    display: inline-block;
+    height: 45px;
+    width: 45px;
+    line-height: 45px;
+    cursor: pointer
+}
+
+html body .cals-body .dates span.active,
+html body .cals-body .dates span:hover {
+    background: #019C9C;
+    color: #fff
+}
+
+html body .cals-body .dates span.ntMonth {
+    color: #f1f1f1;
+    background: #7C7B7B
+}
+
+html body .cals-body .dates span.ntMonth:hover {
+    background: #019C9C;
+    color: #fff
+}
+
+html body .card#event .card-header .close {
+    color: #fff;
+    opacity: 1
+}
+
+html body .card#event .cals-body .events-today {
+    height: 210px;
+    overflow-x: hidden
+}
+
+html body .card#event .cals-body .events-input .data-invalid {
+    border-color: red
+}
+
+html body .card#event .cals-body .events-input .error {
+    font-size: 12px;
+    color: red;
+    position: absolute;
+    top: 100%
+}
+
+html body .pa-sm {
+    position: absolute
+}
+
+html body .bg-date-ctive {
+    background-color: #019C9C !important;
+}
+
+@media(max-width: 767px) {
+
+    html body .cals-body .days span {
+        height: 38px;
+        width: 38px;
+        line-height: 38px;
+        font-size: .8rem
+    }
+
+    html body .cals-body .dates span {
+        height: 38px;
+        width: 38px;
+        line-height: 38px;
+        font-size: .8rem
+    }
+
+    html body .card#event .cals-body .events-today {
+        height: 188px
+    }
+}
+
+@media screen and (max-width: 376px) {
+    html body .cals-body .days span {
+        height: 26px !important;
+        width: 26px !important;
+        line-height: 26px !important;
+        font-size: .6rem
+    }
+
+    html body .cals-body .dates span {
+        height: 26px !important;
+        width: 26px !important;
+        line-height: 26px !important;
+        font-size: .6rem
+    }
+}
+
+/*# sourceMappingURL=style.css.map */

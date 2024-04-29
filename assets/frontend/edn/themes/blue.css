@@ -1,0 +1,84 @@
+:root {
+    --themes-green: #30AB7F;
+    --themes-red: #FF1614;
+    --themes-blue: #237F9B;
+    --body-color: #E8EDEF;
+    --color-1: #019c9c;
+    --color-2: #237F9B;
+    --color-3: #f1f1f1;
+    --color-4: #eae5e5;
+    --color-5: #707070;
+    --color-6: #C4C0C0;
+    --color-7: #C1C3C4;
+    --color-8: #E7E7E7;
+    --color-9: #f1f1f1;
+    --color-10: #525354;
+    --color-11: #747C89;
+    --color-12: #062442;
+    --color-13: #B1B1B1;
+    --color-14: #237F9B;
+    --color-15: #707070;
+    --color-16: #E8E5E5;
+    --color-17: #019c9c;
+    --color-18: rgba(0, 0, 0, 0.904);
+    --gradient-1: linear-gradient(270deg, #1EBBB4 -2.03%, #2a557a 100%);
+    --gradient-2: linear-gradient(270deg, #1EBBB4 10%, #316991 90%);
+
+
+    --jumboImg: url("image/jumbotronImage.png");
+    --pplBrandImg: url("image/bPeopleBrand-only.png");
+    --imgUnggulMain: url("image/bubble-blue.png");
+    --imgGallery: url("image/bubble-blue-2.png");
+    --loginVectors: url("image/loginImage-blue.png");
+    --kalenderBg: url("image/kalenderDesk-blue.png");
+    --ppdbLoginImg: url("image/ppdbLoginImg-blue.png");
+    --ppdbLoginImg-2: url("image/ppdbLoginMobileBlue.png");
+    --bg-imgs-1: url("image/bg-bubble-blues.png");
+    --bg-imgs-2: url("image/bg-bubble-blues.png") no-repeat scroll 120% 10%, url("image/bg-ppls-blue.png") no-repeat scroll left 10%;
+    --iconMapsThemes: url("image/iconMapBiru.png");
+    --allMapsThemes: url("image/allMapBiru.png");
+    --galleryIcons: url("icon/gallery_topIcon_blue.png")
+}
+
+
+@media screen and (max-width: 992px) {
+    body .loginVector {
+        height: 130px;
+    }
+
+    body .loginVectors {
+        height: 125px;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    body .loginVector {
+        height: 105px;
+    }
+
+    body .loginVectors {
+        height: 90px;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    body .loginVector {
+        height: 75px;
+    }
+
+    body .loginVectors {
+        height: 55px;
+    }
+}
+
+/* 
+
+@media screen and (max-width: 992px) {
+    body .loginVector {
+        height: 85px;
+    }
+
+    body .loginVectors {
+        height: 70px;
+    }
+} */

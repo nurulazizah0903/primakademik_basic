@@ -1,0 +1,1 @@
+<img class="w3-round" src="<?php echo $this->crud_model->get_job_fair_image($param1); ?>">

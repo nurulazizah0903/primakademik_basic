@@ -1,0 +1,87 @@
+<table id="basic-datatable" class="table table-striped dt-responsive nowrap" width="100%">
+    <thead>
+        <tr style="background-color: #313a46; color: #ababab;">
+            <th><?php echo get_phrase('teacher'); ?></th>
+            <th><?php echo get_phrase('homeroom'); ?></th>
+            <th><?php echo get_phrase('marks'); ?></th>
+            <!-- <th><?php echo get_phrase('assignment'); ?></th> -->
+            <th><?php echo get_phrase('attendance'); ?></th>
+            <!-- <th><?php echo get_phrase('online_exam'); ?></th> -->
+        </tr>
+    </thead>
+    <tbody>
+		<?php
+            $school_id = school_id();
+            // $this->db->where('department_id in (select id from departments where lower(name) like \'%guru%\')');
+            $teachers = $this->db->get_where('teachers', array('school_id' => $school_id))->result_array();
+            $teachers_data = $this->db->get_where('users', array('role' => 'teacher'))->result_array();
+            $teachers_name = [];
+            $homeroom = $this->db->get_where('teacher_permissions', array('class_id' => $class_id, 'section_id' => $section_id, 'homeroom' => '1'))->row_array();
+            foreach ($teachers_data as $teacher_data) {
+                $teachers_name[$teacher_data['id']] = $teacher_data['name'];
+            }
+			foreach($teachers as $teacher){
+                $permission = $this->db->get_where('teacher_permissions', array('teacher_id' => $teacher['id'], 'class_id' => $class_id, 'section_id' => $section_id))->row_array();
+                $nonhomeroom = $this->db->get_where('teacher_permissions', array('class_id' => $class_id, 'section_id' => $section_id, 'teacher_id' => $teacher['id'], 'homeroom' => '1'))->row_array();
+		?>
+		<tr>
+            <td><?php echo $teachers_name[$teacher['user_id']]; ?></td>
+            <td>
+                <?php
+                if(isset($homeroom)){ 
+                    if ($nonhomeroom) { ?>
+                        <input type="checkbox" value="<?php echo $permission['homeroom']; ?>" id="<?php echo $teacher['id'].'1'; ?>" data-switch="success" onchange="togglePermission(this.id, 'homeroom', '<?php echo $teacher['id']; ?>')" <?php if($permission['homeroom'] == 1) echo 'checked'; ?> 
+                        <?php
+                        if($permission['marks'] == 1){
+                            echo 'disabled';
+                        }elseif($permission['marks'] == 0) {
+                            echo 'enabled';
+                        }?>>
+                        <label for="<?php echo $teacher['id'].'1'; ?>" data-on-label="Yes" data-off-label="No">
+                    <?php
+                    }else{
+                        echo get_phrase('homeroom_teacher_is_available'); 
+                    }
+                ?>
+                <?php
+                }elseif($homeroom == 0) {
+                ?>
+                <input type="checkbox" value="<?php echo $permission['homeroom']; ?>" id="<?php echo $teacher['id'].'1'; ?>" data-switch="success" onchange="togglePermission(this.id, 'homeroom', '<?php echo $teacher['id']; ?>')" <?php if($permission['homeroom'] == 1) echo 'checked'; ?> 
+                <?php
+                if($permission['marks'] == 1){
+                    echo 'disabled';
+                }elseif($permission['marks'] == 0) {
+                    echo 'enabled';
+                }?>>
+                <label for="<?php echo $teacher['id'].'1'; ?>" data-on-label="Yes" data-off-label="No">
+                <?php } ?>
+            </td>
+            <td>
+                <input type="checkbox" value="<?php echo $permission['marks']; ?>" id="<?php echo $teacher['id'].'2'; ?>" data-switch="success" onchange="togglePermission(this.id, 'marks', '<?php echo $teacher['id']; ?>')" <?php if($permission['marks'] == 1) echo 'checked'; ?>
+                <?php
+                if($permission['homeroom'] == 1){
+                    echo 'disabled';
+                }elseif($permission['homeroom'] == 0) {
+                    echo 'enabled';
+                }?>>
+                <label for="<?php echo $teacher['id'].'2'; ?>" data-on-label="Yes" data-off-label="No">
+            </td>
+            <!-- <td>
+                <input type="checkbox" value="<?php echo $permission['assignment']; ?>" id="<?php echo $teacher['id'].'2'; ?>" data-switch="success" onchange="togglePermission(this.id, 'assignment', '<?php echo $teacher['id']; ?>')" <?php if($permission['assignment'] == 1) echo 'checked'; ?>>
+                <label for="<?php echo $teacher['id'].'2'; ?>" data-on-label="Yes" data-off-label="No">
+            </td> -->
+            <td>
+                <input type="checkbox" value="<?php echo $permission['attendance']; ?>" id="<?php echo $teacher['id'].'3'; ?>" data-switch="success" onchange="togglePermission(this.id, 'attendance', '<?php echo $teacher['id']; ?>')" <?php if($permission['attendance'] == 1) echo 'checked'; ?>>
+                <label for="<?php echo $teacher['id'].'3'; ?>" data-on-label="Yes" data-off-label="No">
+            </td>
+            <!-- <td>
+                <input type="checkbox" value="<?php echo $permission['online_exam']; ?>" id="<?php echo $teacher['id'].'4'; ?>" data-switch="success" onchange="togglePermission(this.id, 'online_exam', '<?php echo $teacher['id']; ?>')" <?php if($permission['online_exam'] == 1) echo 'checked'; ?>>
+                <label for="<?php echo $teacher['id'].'4'; ?>" data-on-label="Yes" data-off-label="No">
+            </td> -->
+		</tr>
+		<?php } ?>
+	</tbody>
+</table>
+<script type="text/javascript">
+    initDataTable('basic-datatable');
+</script>
